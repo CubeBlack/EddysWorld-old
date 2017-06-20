@@ -1,0 +1,44 @@
+
+Você também pode apontar seu domínio ( Registro DNS "A") para este IP: 93.188.160.191
+
+ns1.hostinger.com.br 	31.170.163.241
+ns2.hostinger.com.br 	31.220.23.1
+ns3.hostinger.com.br 	173.192.183.247
+ns4.hostinger.com.br 	31.170.164.249
+
+Detalhes do Website
+Acesse seu Website em	http://eeddysword.esy.es
+Acesse seu Website com www.	http://www.eeddysword.esy.es
+Endereço IP do Website	93.188.160.191
+Nome do Servidor	server109.hostinger.com.br
+
+Detalhes de Email
+Endereço do Webmail	http://webmail.hostinger.com.br
+Login de Usuario	E-mail do Usuário
+Senha	Senha de E-mail do Usuário
+Host POP3/IMAP	mx1.hostinger.com.br
+Porta POP3	110
+Porta POP3 (seguro)	Upgrade
+Porta IMAP	Upgrade
+Porta IMAP (Seguro)	Upgrade
+Host SMTP	mx1.hostinger.com.br
+Portas SMTP	Use cliente Webmail ou Upgrade
+Portas SMTP (seguro)	Use cliente Webmail ou Upgrade
+Gerenciar contas de email	Gerenciar E-mails
+
+Detalhes de Upload de Arquivo
+IP do FTP	93.188.160.191
+Nome de host do FTP	ftp.eeddysword.esy.es
+Username do FTP	u225180571
+Senha de FTP	••••••••••
+Porta FTP	21
+Enviar Arquivos Para	public_html
+Clientes FTP recomendados.	SmartFTP ou FileZilla
+Detalhes do Construtor de Website
+Selecionar template do website em	http://builder.hostinger.com.br
+Login de Domínio	eeddysword.esy.es
+Nome de Usuário	u225180571
+Senha	••••••••••
+
+
+u225180571_dbs 	u225180571_root 	mysql.hostinger.com.br
