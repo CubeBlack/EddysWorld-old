@@ -1,0 +1,31 @@
+#display{
+	top:30px;
+	left:0px;
+	width:calc(60% - 14px);
+	height:calc(100% - 44px);
+}
+#SD_content{
+	height:100%;
+	width:100%;
+}
+#SD_sething{
+	position:absolute;
+	top:0;
+	right:0;
+}
+#SD_sething button{
+	height:25px;
+	width:25px;
+}
+#log{
+	bottom: 0;
+	right: 0;
+	width: calc(40% - 14px);
+	height: calc(40% - 29px);
+}
+#config{
+	top: 30px;
+	right: 0;
+	width: calc(40% - 14px);
+	height: calc(60% - 29px);
+}

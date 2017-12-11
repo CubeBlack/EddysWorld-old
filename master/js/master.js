@@ -1,0 +1,2 @@
+//world.show(json)
+page = {};

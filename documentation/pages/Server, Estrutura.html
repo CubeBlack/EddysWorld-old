@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=windows-1252">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice 4.1.4  (Win32)">
+	<META NAME="AUTHOR" CONTENT="Daniel Lima">
+	<META NAME="CREATED" CONTENT="20171206;7315964">
+	<META NAME="CHANGEDBY" CONTENT="Daniel Lima">
+	<META NAME="CHANGED" CONTENT="20171206;8551511">
+	<META NAME="CHANGEDBY" CONTENT="Daniel Lima">
+	<META NAME="CHANGEDBY" CONTENT="Daniel Lima">
+	<META NAME="CHANGEDBY" CONTENT="Daniel Lima">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { margin: 2cm }
+		P { margin-bottom: 0.21cm }
+		H1 { margin-bottom: 0.21cm }
+		H1.western { font-family: "Arial", sans-serif; font-size: 16pt }
+		H1.cjk { font-family: "Lucida Sans Unicode"; font-size: 16pt }
+		H1.ctl { font-family: "Mangal"; font-size: 16pt }
+		H2 { margin-bottom: 0.21cm }
+		H2.western { font-family: "Arial", sans-serif; font-size: 14pt; font-style: italic }
+		H2.cjk { font-size: 14pt; font-style: italic }
+		H2.ctl { font-family: "Mangal"; font-size: 14pt; font-style: italic }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="pt-BR" DIR="LTR">
+<H1 CLASS="western">Estrutura</H1>
+<H2 CLASS="western">Classes</H2>
+<UL>
+	<LI><P><B>class </B>config_db</P>
+	<UL>
+		<LI><P><B>vars</B> string host, string user, string password,
+		string name, bool show_error</P>
+	</UL>
+	<LI><P><B>class</B> config{ 
+	</P>
+	<UL>
+		<LI><P><B>vars </B>bool show_error, config_db db</P>
+	</UL>
+	<LI><P><B>class</B> User{</P>
+	<UL>
+		<LI><P><B>const </B>tUser_excluido, tUser_banido , tUser_anonymus,
+		tUser_player, tUser_gm, tUser_developer</P>
+		<LI><P><B>vars</B> id, acesso, nick, email, tUser</P>
+		<LI><P>logued()</P>
+		<LI><P>login(user,password)</P>
+		<LI><P>novo()</P>
+	</UL>
+	<LI><P><B>class</B> Database</P>
+	<UL>
+		<LI><P><B>const</B> userTb, persTb, inerTb || S&atilde;o os nomes
+		das tabelas 
+		</P>
+		<LI><P>tableSelect (table,parametro)</P>
+		<LI><P>autoConfig() || configurar automaticamente o banco de dados,
+		crindo tabelas e inserindo valores padrao</P>
+	</UL>
+</UL>
+<UL>
+	<LI><P><B>class</B> DataLocal{</P>
+	<UL>
+		<LI><P><B>var</B> Object data</P>
+		<LI><P>insert($valueName, $value)</P>
+		<LI><P>save()</P>
+		<LI><P>get()</P>
+		<LI><P>clear()</P>
+	</UL>
+</UL>
+</BODY>
+</HTML>
