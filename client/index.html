@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title>Cloto</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="resources/css/base.css">
+		<script src="http://github/Teminal/v002.0/terminal_v2.0.class.js" charset="utf-8"></script>
+		<script src="resources/js/page.js" charset="utf-8"></script>
+		<script src="resources/js/newNota.js" charset="utf-8"></script>
+		<script src="resources/js/edit.js" charset="utf-8"></script>
+		<script src="resources/js/search.js" charset="utf-8"></script>
+	</head>
+	<body onload="page.loaded()">
+		<header>
+			Cloto  - <span id="aSearch">aSearch</span>
+			
+			<nav>
+			<a onclick="page.setQuery('');">Clear</a>
+				<input type="text" id="searchInput">
+				<input type="button" onclick="page.iSearch()" value="pesquisar">
+			</nav>
+		</header>
+		<section id="content" >
+			<dado>
+				<valor>
+					Dados
+				</valor>
+				<tag>#tags</tag><tag>#{tags logicas}</tag>
+			</dado>
+		</section>
+		<nav class="submenu" >
+			<a onclick="page.novaNota()">Adicionar</a>
+		</nav>
+		<footer>
+			<a href="#">Serveer</a>
+		</footer>
+		<div id="popUp" >
+			<div id="popUp-base" onclick="page.popUp()"></div>
+			<div id="popUp-content" onclick="">
+					Enpty!
+			</div>
+		</div>
+
+	</body>
+	
+</html>

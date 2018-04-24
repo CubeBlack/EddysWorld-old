@@ -1,0 +1,70 @@
+*{
+	margin:0;
+	padding:0;
+	display:normal;
+}
+body{
+	background-image:url('../../resources/img/background250.png');
+}
+#display{
+	position:fixed;
+	top:10px;
+	left:10px;
+	height:calc(100% - 20px);
+	width:calc(60% - 20px);
+	border:1px solid black;
+	
+	background-color:rgba(255,255,255,0.9);
+}
+#options{
+	position:fixed;
+	top:10px;
+	right:10px;
+	height:calc(80% - 20px);
+	width:calc(40% - 20px);
+	border:1px solid red;
+	background-color:rgba(255,255,255,0.9);	
+}
+nav{
+	display:block;
+	
+}
+#options nav li{
+	display:block;
+	float:left;
+	padding:3px;
+	margin:3px;
+	color:blue;
+	min-width:20px;
+	border-bottom:1px solid blue;
+	border-right:1px solid blue;
+	background-color:white;
+	cursor:pointer;
+}
+#options nav li:hover{
+	color:red;
+	border-bottom:1px solid red;
+	
+}
+#terminal{
+	position:fixed;
+	bottom:10px;
+	right:10px;
+	height:calc(20% - 20px);
+	width:calc(40% - 20px);
+	border:1px solid red;
+	background-color:rgba(255,255,255,0.9);		
+}
+#terminal content{
+	position:absolute;
+	height:calc(100% - 20px);
+	
+}
+#terminal #imp{
+	position:absolute;
+	bottom:0;
+	height:20px;
+	width:100%;
+	padding:0;
+	margin:0;
+}
