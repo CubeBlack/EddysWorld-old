@@ -14,6 +14,7 @@
 		public $nick;
 		public $email;
 		public $tUser;
+		public $personagem;
 		
 		function __construct(){
 			global $dbl;

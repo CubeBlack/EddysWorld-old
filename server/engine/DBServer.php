@@ -30,19 +30,8 @@ class DBServer
       $query .= "'{$values[$i]}'";
       $query .= ");";
       $results = $this->mePDO->query($query);
-	  /*
-	  if($this->mePDO->errorInfo()[1] != NULL) {
-          if($error_show){
-            echo "Error (DBServer::tableInsert)" .
-              $this->mePDO->errorInfo()[1] .
-              ": " .
-              $this->mePDO->errorInfo()[2]
-            ;
-          }
-          return false;
-      }
-	  */
-      return $this->mePDO->lastInsertid();
+      
+	  return $this->mePDO->lastInsertid();
     }
     public function tableSelect ($table,$parametro){
       global $error_show;
@@ -53,12 +42,6 @@ class DBServer
           LIMIT 10
       ";
       $results = $this->mePDO->query($query);
-	/*
-      if($this->mePDO->errorInfo()[1] != NULL) {
-          if($error_show) echo "Error (DateBase::tableGet)" . $this->mePDO->errorInfo()[1] . ": " . $this->mePDO->errorInfo()[2];
-          return false;
-      }
-	  */
       if(!$results) return false;
       return $results->fetchAll();
     }

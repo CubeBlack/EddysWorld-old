@@ -2,36 +2,78 @@
 	<head>
 		<title>EW | Master</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="resources/css/base.css">
-		<script src="http://github/Teminal/v002.0/terminal_v2.0.class.js" charset="utf-8"></script>
-		<script src="resources/js/page.js" charset="utf-8"></script>
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" href="css/view.css">
+		<link rel="stylesheet" href="css/conso.css">
+		<script src="https://localhost/Teminal/v002.0/terminal_v2.0.class.js" charset="utf-8"></script>
+		<script src="js/master.js" charset="utf-8"></script>
+		<script src="js/conso.js" charset="utf-8"></script>
+		<script src="js/view.js" charset="utf-8"></script>
+		<script src="js/go.js" charset="utf-8"></script>
 	</head>
-	<body onload="page.loaded()">
-		<section id="display">
-			Display
+	<body onload="page.load()">
+		<section id="display-base">
+			<section id="display" onclick="go.cancelar()"></section>
+			<div id="display-com">
+				<input onclick="" type="button" value="*">
+				<input onclick="view.setUp()" type="button" value="▲">
+				<input onclick="" type="button" value="*">
+				<br>
+				<input onclick="view.setLeft()" type="button" value="◄">
+				<input onclick="view.resetar()" type="button" value="☼">
+				<input onclick="view.setRigth()" type="button" value="►">
+				<br>
+				<input onclick="view.setIn()" type="button" value="+">
+				<input onclick="view.setDown()" type="button" value="▼">
+				<input onclick="view.setOut()" type="button" value="-">
+				<br>
+				<label id="display-label-x">0</label>m of X<br>
+				<label id="display-label-y">0</label>m of Y<br>
+				<label id="display-label-z">0</label>m of Z<br>
+			</div>
 		</section>
 		<section id="options">
-			<nav>
-				<ul>
-					<li>
-						Inert
-					</li>
-					<li>
-						Player
-					</li>
-				</ul>
-			</nav>
-			<section id="inert">
-				Opções de objetos Inertes
-				(casas construções arvoes florestas)
-				
-			</section>
-			
+			<label>Propriedades</label>
+			<div id="proprieades-go" >
+				GameObject
+				<p><input id="proprieades-go-id" disabled>is your <label>id</label></p>
+				<p><input id="proprieades-go-x" >m is postion <label>x</label></p>
+				<p><input id="proprieades-go-y">m is postion <label>y</label></p>
+				<p><input id="proprieades-go-height">m of <label>height</label></p>
+				<p><input id="proprieades-go-width">m of <label>width</label>
+				<p><input id="proprieades-go-tipo" onkeyup="go.setTipo()">of <label>type</label></p>
+			</div>
+			<div id="proprieades-inert">
+				Tipo Inert
+				<p><input id="proprieades-inert-nome"> of <label>Nome</label></p>
+				<p><textarea id="proprieades-inert-desc"></textarea> and <label>About</label></p>
+			</div>
+			<div id="proprieades-personagem">
+				Tipo personagem
+				<p><input>and your <label>Nome</label>
+				<p><input>name of your <label>Grimorio</label>
+				<p><input><label>Dinheiro</label>
+				<p><input><label>Magia</label>
+				<p><input><label>vigor</label>
+				<p><input><label>velocidade</label>
+				<p><input><label>invetorio</label>
+				<p><input><label>tipo</label>
+			</div>
+			<div id="proprieades-player">
+				Tipo Player
+				<p><input> e seu <label>Nick</label>
+				<p><input> e seu <label>Email</label>
+			</div>
+			<div id="options-acoes">
+				<input type="button" onclick="go.novo()" value="Novo">
+				<input id="proprieades-acao" type="button" value="None" disabled>
+				<input type="button" onclick="go.cancelar()" value="Cancelar">
+				<input type="button" onclick="go.apagar()" value="Apagar">
+				<input type="button" onclick="go.apagar()" value="pesquisar">
+			</div>
 		</section>
 		<section id="terminal">
-			<content>
-				Enpty;
-			</content>
+			<div id="terminal-log"></div>
 			<textarea id="imp"></textarea>
 			
 		</section>

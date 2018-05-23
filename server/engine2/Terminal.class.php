@@ -6,14 +6,26 @@
 		public $params;
 	}
 	Class Terminal{
-		function __construct(){
-			 
+		function __construct($vars,$noLog=array()){
+			$this->vars = $vars;
+			$this->noLog = $noLog;
 		}
 		function chamada($comStr){
 			$this->com = new TerminalComander();
 			$this->com->str = $comStr;
 			$this->pearce();
 			$this->call();
+		}
+		function setLog(){
+			$filename = 'terminal.log';
+			if (!$handle = fopen($filename, 'a')) {
+				 echo "Não foi possível abrir o arquivo ($filename)";
+				 exit;
+			}
+			if (fwrite($handle, $this->com->str."\n") === FALSE) {
+				echo "Não foi possível escrever no arquivo ($filename)";
+			}
+			fclose($handle);
 		}
 		function pearce(){
 			$comStr = $this->com->str;
@@ -29,6 +41,7 @@
 			for($i = 0; $i < strlen($comStr);$i++){
 				if($comStr[$i] == "("){
 					$tipoGet = "param";
+					$params[$paramN] = "";
 					$this->com->tipo = "function";
 					continue;
 				}
@@ -49,6 +62,24 @@
 						++$paramN;
 						continue;
 					}
+					if(strlen($comStr)>9){
+						if(
+							$comStr[$i-8] == "s"&
+							$comStr[$i-7] == "t"&
+							$comStr[$i-6] == "r"&
+							$comStr[$i-5] == "B"&
+							$comStr[$i-4] == "e"&
+							$comStr[$i-3] == "g"&
+							$comStr[$i-2] == "i"&
+							$comStr[$i-1] == "n"&
+							$comStr[$i-0] == "\""){
+							$tipoGet = "paramStr";
+							$params[$paramN] = "";
+							continue;
+							
+							//echo "+++";
+						}
+					}
 					if(isset($params[$paramN])){
 						$params[$paramN] .= $comStr[$i];
 					}
@@ -57,22 +88,41 @@
 					}
 					
 				}
+				if($tipoGet == "paramStr"){
+					if(strlen($comStr)>7){
+						if(
+							$comStr[$i-6] == "\""&
+							$comStr[$i-5] == "s"&
+							$comStr[$i-4] == "t"&
+							$comStr[$i-3] == "r"&
+							$comStr[$i-2] == "E"&
+							$comStr[$i-1] == "n"&
+							$comStr[$i-0] == "d"){
+							$tipoGet = "param";
+							$params[$paramN] = substr($params[$paramN],0,-6);
+							continue;
+						}
+					}
+					if(isset($params[$paramN])){
+						$params[$paramN] .= $comStr[$i];
+					}
+					else{
+						array_push($params,$comStr[$i]);
+					}
+				}
 			}
 			$this->com->params = $params;
 			$this->com->nodes = $nodes;
-			//var_dump($this->com);
+			//var_dump($this);
+			//echo $this->com->params[0];
 		}
 		function call(){
-			//------------variaveis acesiveis pelo terminal
-			//todos
-			global $user,$world;
-			//apenas desenvolvedor
-			//if($user->tUser == User::tUser_developer){
-				global $dbl, $db, $config,$gameObject;
-			//}
-			//-------------
-			
-			//------------------------
+			$this->setLog($this->com->str);
+			//---------------------
+			foreach($this->vars as $ar){
+				global ${$ar};
+			}
+			//---------------------
 			if(isset(${$this->com->nodes[0]})){
 				$retorno = ${$this->com->nodes[0]};
 			}
@@ -111,6 +161,9 @@
 				$retorno = $retorno->{$tNode}($this->com->params[0]);
 			else if(sizeof($this->com->params)==2)
 				$retorno = $retorno->{$tNode}($this->com->params[0],$this->com->params[1]);
+			else if(sizeof($this->com->params)==3)
+				$retorno = $retorno->{$tNode}($this->com->params[0],$this->com->params[1],$this->com->params[2]);
+			
 			else{
 				echo "Erro 014(Terminal.class): Quantidade de parametros nao suportada";
 			}
@@ -162,6 +215,7 @@
 			*/
 			//var_dump(${"user"});
 			fim:
+			//var_dump($this);
 			if(is_string($retorno)){
 				echo $retorno;
 			}

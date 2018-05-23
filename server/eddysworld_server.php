@@ -8,8 +8,33 @@ $config = new Config();
 $dbl = new DataLocal();
 $db = new Database ();
 $user = new User();
-$gameObject = new GameObject();
+$go = $gameObject = new GameObject();
+$inert = new Inert();
 $world = new World();
+$grimorio = new Grimorio();
 
+// Help
+$help = " --- Ajuda ---
+Variaveis Globais(Objetos):
+	* config
+	* user
+	* gameObject/go
+	* inert
+	* db
+	* world
+
+obs.: Para obter ajuda de uma determinada variavel basta utilizar a funcao `help`
+	Exemplo: `user.help()`
+";
 //$grimorio = new Grimorio();
-$term = New Terminal();
+$vars = array(
+	"help",
+	"config",
+	"user",
+	"gameObject", "go",
+	"inert",
+	"db",
+	"world",
+	"grimorio"
+);
+$term = New Terminal($vars);

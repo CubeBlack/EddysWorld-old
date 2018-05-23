@@ -1,18 +1,23 @@
 <?php
 	class config_db{
 		public
-			$host = "localhost:3307",
+			$host = "localhost",
 			$user = "root",
-			$password = "usbw",
+			$password = "",
 			$name = "eddysworld",
-			$show_error = false
+			$show_error = true
 		;
-		
 	}
 	class config{
-		
 		function __construct(){
 			$this->show_error = true;
 			$this->db = new config_db();
 		}
+		function help(){
+return " configuracoes
+
+";
+		}
 	}
+	
+	

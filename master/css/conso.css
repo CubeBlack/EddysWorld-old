@@ -1,0 +1,12 @@
+#terminal-log{
+	overflow:scroll;
+	height:calc(100% - 20px);
+	background-color: black;
+	color:white;
+}
+#terminal-log div{
+	border-bottom:
+}
+.send{
+	color:red;
+}

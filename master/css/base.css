@@ -4,17 +4,18 @@
 	display:normal;
 }
 body{
-	background-image:url('../../resources/img/background250.png');
+	background-image:url('./../img/background250.png');
 }
-#display{
+textarea{
+	max-width:100%;
+}
+#display-base{
 	position:fixed;
 	top:10px;
 	left:10px;
 	height:calc(100% - 20px);
 	width:calc(60% - 20px);
 	border:1px solid black;
-	
-	background-color:rgba(255,255,255,0.9);
 }
 #options{
 	position:fixed;
@@ -23,28 +24,21 @@ body{
 	height:calc(80% - 20px);
 	width:calc(40% - 20px);
 	border:1px solid red;
-	background-color:rgba(255,255,255,0.9);	
+	background-color:rgba(255,255,255,0.9);
+	padding:5px;
 }
-nav{
-	display:block;
-	
+#options input{
+	width:80px;
 }
-#options nav li{
-	display:block;
-	float:left;
-	padding:3px;
-	margin:3px;
+#options div{
+	border-top:1px solid black;
+	padding-bottom:5px;
+}
+#options label{
 	color:blue;
-	min-width:20px;
-	border-bottom:1px solid blue;
-	border-right:1px solid blue;
-	background-color:white;
-	cursor:pointer;
 }
-#options nav li:hover{
-	color:red;
-	border-bottom:1px solid red;
-	
+#proprieades-go{
+	display:none;
 }
 #terminal{
 	position:fixed;

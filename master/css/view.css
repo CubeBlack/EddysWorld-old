@@ -1,0 +1,42 @@
+#display{
+	overflow:hidden;
+	font-size:12px;
+	height:100%;
+	background-color:rgba(255,255,255,0.9);
+}
+#display-com{
+	position:absolute;
+	right:0;
+	top:0;
+	text-align:right;
+}
+#display-com input{
+	width:20px;
+}
+#display-com label{
+	color: red;
+}
+.innert{
+	position:absolute;
+	border:1px solid blue;
+	background-color:rgba(50,50,255,0.5);
+	cursor:pointer;
+}
+.innert:hover{
+	position:absolute;
+	border:1px solid red;
+	background-color:pink;
+}
+.peaple{
+	
+}
+.grid-zero{
+	position:absolute;
+	border:1px solid gray;
+}
+.grid{
+	position:absolute;
+	border-bottom:1px solid gray;
+	border-right:1px solid gray;
+}
+	
