@@ -4,17 +4,24 @@
 		public $str;
 		public $nodes;
 		public $params;
+		//public $rIntegral;
 	}
 	Class Terminal{
-		function __construct($vars,$noLog=array()){
+		//no log, vvalores ue n'ao devem ser salvos no log
+		//como comando apenas para visulizrar dados
+		//mas acho melhor especificar apenas os que v'ao para o log
+		//tipo um inLog
+		//rIntegral, para o caso de querer a resposta no retorno, e n'ao no echo
+		function __construct($vars,$noLog=array(),$rIntegral=false){
 			$this->vars = $vars;
 			$this->noLog = $noLog;
+			$this->rIntegral = $rIntegral;
 		}
 		function chamada($comStr){
 			$this->com = new TerminalComander();
 			$this->com->str = $comStr;
 			$this->pearce();
-			$this->call();
+			return $this->call();
 		}
 		function setLog(){
 			$filename = 'terminal.log';
@@ -39,18 +46,18 @@
 			$paramN = 0;
 			
 			for($i = 0; $i < strlen($comStr);$i++){
-				if($comStr[$i] == "("){
-					$tipoGet = "param";
-					$params[$paramN] = "";
-					$this->com->tipo = "function";
-					continue;
-				}
 				if($tipoGet == "nodes"){
 					if($comStr[$i] == '.'){
 						$nodeN++;
 						$nodes[$nodeN] = "";
 						continue;
 					}
+					if($comStr[$i] == "("){
+						$tipoGet = "param";
+						$params[$paramN] = "";
+						$this->com->tipo = "function";
+					continue;
+				}
 					$nodes[$nodeN] .= $comStr[$i];
 					continue;
 				}
@@ -163,59 +170,21 @@
 				$retorno = $retorno->{$tNode}($this->com->params[0],$this->com->params[1]);
 			else if(sizeof($this->com->params)==3)
 				$retorno = $retorno->{$tNode}($this->com->params[0],$this->com->params[1],$this->com->params[2]);
+			else if(sizeof($this->com->params)==4)
+				$retorno = $retorno->{$tNode}($this->com->params[0],$this->com->params[1],$this->com->params[2],$this->com->params[3]);
+			else if(sizeof($this->com->params)==5)
+				$retorno = $retorno->{$tNode}($this->com->params[0],$this->com->params[1],$this->com->params[2],$this->com->params[3],$this->com->params[4]);
 			
 			else{
 				echo "Erro 014(Terminal.class): Quantidade de parametros nao suportada";
 			}
-			
-			
-			/*
-			if(isset($retorno->{$tNode})){
-				$retorno = $retorno->{$tNode};
-			}
-			else{
-				echo "Erro 013 (Terminal.class): Ultimo termo '{$tNode}', nao reconhecido.";
-				return;
-			}
-			*/
+
 			goto fim;
-			/*
-			foreach($this->com->nodes as $key => $node){
-				if($key == sizeof($this->com->nodes) - 1){
 
-					
-				}
-				else{
-					$retorno .= $node . "->";
-					retorno2 = retorno2->{$node};
-					this>testVar(retorno2);
-				}
-				
-			}
-
-			if($this->com->tipo == "variable"){
-				$retorno .= $node;
-			}
-			else if($this->com->tipo == "function"){
-				$retorno .= $node . "(";
-				foreach($this->com->params as $key => $param){
-					if($key == sizeof($this->com->params) - 1){
-						$retorno .= $param;
-					}else{
-						$retorno .= $param . ",";
-					}
-					
-				}
-				$retorno .= $node . ")";
-			} 
-			else{
-				echo "Erro(1): Tipo indefinido";
-				return;
-			}
-			*/
-			//var_dump(${"user"});
 			fim:
-			//var_dump($this);
+			if($this->rIntegral){
+				return $retorno;
+			}
 			if(is_string($retorno)){
 				echo $retorno;
 			}

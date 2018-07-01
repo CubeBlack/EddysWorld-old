@@ -4,6 +4,7 @@
 			userTb = "ew_user",
 			persTb = "ew_pers",
 			inerTb = "ew_inert",
+			dialogoTb = "ew_dialogo",
 			objcTb = "ew_object"
 		;
 		function __construct(){
@@ -29,7 +30,7 @@
 			$query .= "'{$values[$i]}',";
 		  }
 		  $query .= "'{$values[$i]}'";
-		  echo $query .= ");";
+		  $query .= ");";
 		  $results = $this->mePDO->query($query);
 		  
 		  return $this->mePDO->lastInsertid();

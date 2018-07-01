@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<title>EW-Master | Dialogos</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" href="css/dialogos.css">
+		<link rel="stylesheet" href="css/view.css">
+		<link rel="stylesheet" href="css/conso.css">
+		<script src="https://localhost/Teminal/v002.0/terminal_v2.0.class.js" charset="utf-8"></script>
+		<script src="js/master.js" charset="utf-8"></script>
+		<script src="js/conso.js" charset="utf-8"></script>
+		<script src="js/dialogos.js" charset="utf-8"></script>
+	</head>
+	<body onload="page.load();dialogos.loaded()">
+		<header>
+			<h1>Dialogos</h1>
+			<input><button type="button" onclick = 'dialogos.search()'>Pesquisar</button>
+		</header>
+		<section id="dialogos">
+		<!--
+			<dialogo>
+				<dialogo-p1>
+					<input value='{id}' disabled>
+					<input value='{entrada}' id='dialogo{id}-entrada'>
+				</dialogo-p1>
+				<dialogo-p2>
+					<input value = '{retorno1}' id='dialogo{id}-retorno1'><br>
+					<input value = '{retorno2}' id='dialogo{id}-retorno2'><br>
+					<input value = '{retorno3}' id='dialogo{id}-retorno3'><br>
+					<input value = '{retorno4}' id='dialogo{id}-retorno4'><br>
+					<button type='button'>Adicionar</button>
+				</dialogo-p2>
+				<dialogo-p3>
+					<input value='{personagem}' id='dialogo{id}-personagem'>
+					<button type='button' onclick = 'dialogos.update({id})'>Salvar</button>
+				</dialogo-p3>
+			</dialogo>
+		-->
+		</section>
+		<section id="terminal">
+			<div id="terminal-log"></div>
+			<textarea id="imp"></textarea>
+			
+		</section>
+	</body>
+	
+</html>

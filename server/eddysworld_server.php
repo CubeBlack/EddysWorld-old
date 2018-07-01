@@ -12,6 +12,7 @@ $go = $gameObject = new GameObject();
 $inert = new Inert();
 $world = new World();
 $grimorio = new Grimorio();
+$me = new Personagem();
 
 // Help
 $help = " --- Ajuda ---
@@ -35,6 +36,8 @@ $vars = array(
 	"inert",
 	"db",
 	"world",
-	"grimorio"
+	"grimorio",
+	"me",
+	"term"
 );
 $term = New Terminal($vars);

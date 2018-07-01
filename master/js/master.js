@@ -7,7 +7,14 @@ page.load = function(){
 	term.workerUrl = page.workerUrl;
 	term.on();
 	conso.load();
-	view.loaded();
-	go.load();
+	//view.loaded();
+	//go.load();
+}
+page.replace = function(base,dados){
+	var dadosK=Object.keys(dados);
+	for (var i = 0; i < dadosK.length; i++) {
+		base = base.replace(new RegExp("{" + dadosK[i] + "}", 'g'),dados[dadosK[i]]);
+	}
+	return base;
 }
 console.log("master.js");

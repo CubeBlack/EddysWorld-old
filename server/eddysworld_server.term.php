@@ -1,5 +1,9 @@
 <?php
+	//header("Content-type: text/html; charset=utf-8");
 	require_once("eddysworld_server.php");
+	
+	
+
 	
 	if(!isset($_REQUEST["comander"])){
 		echo "_REQUEST[comander] not fainded";
